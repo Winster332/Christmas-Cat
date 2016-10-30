@@ -16,7 +16,7 @@ namespace Christmas_Cat
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			
-			GGame game = new GGame("LMD_GF", 500, 500);
+			GGame game = new GGame("Christmas Cat", 500, 500);
 			game.SetStartScreen(new ScreenGame(game));
 
 			Application.Run(game);

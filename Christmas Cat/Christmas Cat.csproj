@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameEngine\GResource.cs" />
+    <Compile Include="GameEngine\Models\Train.cs" />
     <Compile Include="GameEngine\Windows\ScreenGame.cs" />
     <Compile Include="GameEngine\Windows\ScreenStart.cs" />
     <Compile Include="Program.cs" />
