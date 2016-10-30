@@ -29,7 +29,7 @@ namespace LMD_GameFramewerk_PC.GameEngine.Windows
 			GResource.LoadTextures();
 
 			imgLMD = new GImage(Game);
-			imgLMD.SetTexture(GResource.tex_lmd);
+			imgLMD.SetTexture(GResource.game_fon);
 			imgLMD.SetWidth(250);
 			imgLMD.SetHeight(200);
 			imgLMD.SetX(Game.GetWindowWidth() / 2);
