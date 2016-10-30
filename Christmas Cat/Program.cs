@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using LMD_GameFramewerk_PC.GameFramewerk.BaseGame;
+using LMD_GameFramewerk_PC.GameEngine.Windows;
 using System.Windows.Forms;
 
 namespace Christmas_Cat
@@ -16,7 +15,11 @@ namespace Christmas_Cat
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			
+			GGame game = new GGame("LMD_GF", 500, 500);
+			game.SetStartScreen(new ScreenGame(game));
+
+			Application.Run(game);
 		}
 	}
 }
