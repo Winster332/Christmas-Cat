@@ -12,7 +12,7 @@ namespace Christmas_Cat.GameEngine.Models
 {
 	public class ChristmasTree
 	{
-		private List<GImage> Decorations;
+		public List<GImage> Decorations { get; set; }
 		private IGame game;
 		private Random rand;
         public ChristmasTree(IGame game)

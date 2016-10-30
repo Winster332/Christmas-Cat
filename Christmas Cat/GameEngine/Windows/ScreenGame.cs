@@ -9,6 +9,7 @@ namespace LMD_GameFramewerk_PC.GameEngine.Windows
 	{
 		public Train train;
 		public ChristmasTree tree;
+		public Cat cat;
 		public bool KEY_A;
 		public bool KEY_D;
 		public ScreenGame(IGame game) : base(game)
@@ -24,6 +25,7 @@ namespace LMD_GameFramewerk_PC.GameEngine.Windows
 			DrawElements(1f);
 			tree.Draw();
 			train.Draw();
+			cat.Draw();
 		}
 		public override void Pause()
 		{
@@ -45,11 +47,27 @@ namespace LMD_GameFramewerk_PC.GameEngine.Windows
 
 			tree = new ChristmasTree(Game);
 			tree.GenerateDecorations(3);
+
+			cat = new Cat(Game, 100, 100, 100, 100);
+			cat.AddTextures(GResource.lcat, Cat.STATE.LEFT);
+			cat.AddTextures(GResource.rcat, Cat.STATE.RIGHT);
+
+			var imageCat = new GImage(Game);
+			imageCat.SetTexture(GResource.lcat[0]);
+			imageCat.SetTexture(GResource.lcat[10]);
+			imageCat.SetWidth(100);
+			imageCat.SetHeight(100);
+			imageCat.SetX(Game.GetWindowWidth() / 2);
+			imageCat.SetY(Game.GetWindowHeight() / 2);
+
+			cat.Bump();
+		//	AddElement(imageCat);
 		}
 		public override void Step(float dt)
 		{
 			tree.Update(dt);
 			train.Update(dt);
+			cat.Update(dt);
 		}
 		public override void TouchDown(System.Windows.Forms.MouseEventArgs eventArgs)
 		{
