@@ -21,6 +21,13 @@ namespace Christmas_Cat.GameEngine.Models
 			Decorations = new List<GImage>();
 			rand = new Random();
 		}
+		public GImage GetDecorationNoBall()
+		{
+			for (int i = 0; i < Decorations.Count; i++)
+				if (Decorations[i].UserObject.ToString() == "decoration")
+					return Decorations[i];
+			return null;
+		}
 		public void AddDecoration(float x, float y, float w, float h, uint texture)
 		{
 			GImage img = new GImage(game);

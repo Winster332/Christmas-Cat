@@ -61,43 +61,45 @@ namespace Christmas_Cat.GameEngine.Models
 
 			if (chTree != null && chTree.Decorations.Count > 0)
 			{
-				GImage decoration = chTree.Decorations[0];
+				GImage decoration = chTree.GetDecorationNoBall();
 
-				if (decoration.UserObject.ToString() == "decoration")
+				if (decoration != null)
 				{
-					float dx = decoration.GetX();
-					float dy = decoration.GetY();
-
-					float cx = image.GetX();
-					float cy = image.GetY();
-
-					float atanAndle = (float)Math.Atan2(dy - cy, dx - cx);
-
-					float targetX = (float)Math.Cos(atanAndle);
-					float targetY = (float)Math.Sin(atanAndle);
-
-					image.SetAndle(atanAndle + 1.3f);
-					image.SetVelocityX(targetX);
-					image.SetVelocityY(targetY);
-
-					bool collide = GImage.IntersectObjectFromRadius(cx, cy, image.GetWidth()/2, dx, dy, decoration.GetWidth()/2);
-
-
-
-					if (collide)
+					if (decoration.UserObject.ToString() == "decoration")
 					{
-						System.Diagnostics.Debug.WriteLine(collide.ToString(), "is collide cat and decoration");
-						Bump();
-	//					decoration.UserObject = "ball";
-						chTree.Decorations.Remove(decoration);
+						float dx = decoration.GetX();
+						float dy = decoration.GetY();
+
+						float cx = image.GetX();
+						float cy = image.GetY();
+
+						float atanAndle = (float)Math.Atan2(dy - cy, dx - cx);
+
+						float targetX = (float)Math.Cos(atanAndle);
+						float targetY = (float)Math.Sin(atanAndle);
+
+						image.SetAndle(atanAndle + 1.3f);
+						image.SetVelocityX(targetX);
+						image.SetVelocityY(targetY);
+
+						bool collide = GImage.IntersectObjectFromRadius(cx, cy, image.GetWidth() / 2, dx, dy, decoration.GetWidth() / 2);
+						
+						if (collide)
+						{
+							System.Diagnostics.Debug.WriteLine(collide.ToString(), "is collide cat and decoration");
+							Bump();
+							decoration.UserObject = "ball";
+							//					chTree.Decorations.Remove(decoration);
+						}
 					}
 				}
+				else
+				{
+					image.SetVelocityX(0);
+					image.SetVelocityY(0);
+				}
 			}
-			else if (chTree.Decorations.Count == 0)
-			{
-				image.SetVelocityX(0);
-				image.SetVelocityY(0);
-			} 
+			
 		}
 		public void Draw()
 		{
