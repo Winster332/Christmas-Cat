@@ -24,7 +24,7 @@ namespace LMD_GameFramewerk_PC.GameEngine.Windows
 		{
 			DrawElements(1f);
 			tree.Draw();
-		//	train.Draw();
+			train.Draw();
 			cat.Draw();
 		}
 		public override void Pause()

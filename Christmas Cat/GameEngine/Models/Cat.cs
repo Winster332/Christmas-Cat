@@ -87,9 +87,7 @@ namespace Christmas_Cat.GameEngine.Models
 						if (collide)
 						{
 							System.Diagnostics.Debug.WriteLine(collide.ToString(), "is collide cat and decoration");
-							Bump();
 							decoration.UserObject = "ball";
-							//					chTree.Decorations.Remove(decoration);
 						}
 					}
 				}

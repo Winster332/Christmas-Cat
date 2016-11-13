@@ -78,6 +78,11 @@ namespace Christmas_Cat.GameEngine.Models
 		{
 			Decorations.ForEach(d =>
 			{
+				if (d.UserObject.ToString() == "ball")
+				{
+					d.SetVelocityY(-1f);
+				}
+
 				d.Step(dt);
 			});
 		}
