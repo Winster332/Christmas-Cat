@@ -42,11 +42,12 @@ namespace LMD_GameFramewerk_PC.GameEngine.Windows
 			imageFon.SetY(Game.GetWindowHeight() / 2);
 			AddElement(imageFon);
 
-			train = new Train(Game, GResource.train);
-			train.Initialize(Game.GetWindowWidth() / 2, 65, 100, 50);
-
 			tree = new ChristmasTree(Game);
 			tree.GenerateDecorations(3);
+
+			train = new Train(Game, GResource.train);
+			train.Initialize(Game.GetWindowWidth() / 2, 65, 90, 30);
+			train.SetChristmasTree(tree);
 
 			cat = new Cat(Game, Game.GetWindowWidth() / 2, Game.GetWindowHeight() / 2, 50, 50);
 			cat.AddTextures(GResource.lcat, Cat.STATE.LEFT);

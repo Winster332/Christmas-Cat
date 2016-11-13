@@ -76,15 +76,20 @@ namespace Christmas_Cat.GameEngine.Models
 		}
 		public void Update(float dt)
 		{
-			Decorations.ForEach(d =>
+			for (int i = 0; i < Decorations.Count; i++)
 			{
-				if (d.UserObject.ToString() == "ball")
+				GImage decoration = Decorations[i];
+				if (decoration.UserObject.ToString() == "ball")
 				{
-					d.SetVelocityY(-1f);
+					decoration.SetVelocityY(-1f);
+				}
+				else if (decoration.UserObject.ToString() == "dead")
+				{
+					Decorations.RemoveAt(i);
 				}
 
-				d.Step(dt);
-			});
+				decoration.Step(dt);
+			}
 		}
 	}
 }
