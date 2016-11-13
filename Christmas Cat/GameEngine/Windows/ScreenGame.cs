@@ -24,7 +24,7 @@ namespace LMD_GameFramewerk_PC.GameEngine.Windows
 		{
 			DrawElements(1f);
 			tree.Draw();
-			train.Draw();
+		//	train.Draw();
 			cat.Draw();
 		}
 		public override void Pause()
@@ -48,20 +48,12 @@ namespace LMD_GameFramewerk_PC.GameEngine.Windows
 			tree = new ChristmasTree(Game);
 			tree.GenerateDecorations(3);
 
-			cat = new Cat(Game, 100, 100, 100, 100);
+			cat = new Cat(Game, Game.GetWindowWidth() / 2, Game.GetWindowHeight() / 2, 50, 50);
 			cat.AddTextures(GResource.lcat, Cat.STATE.LEFT);
 			cat.AddTextures(GResource.rcat, Cat.STATE.RIGHT);
-
-			var imageCat = new GImage(Game);
-			imageCat.SetTexture(GResource.lcat[0]);
-			imageCat.SetTexture(GResource.lcat[10]);
-			imageCat.SetWidth(100);
-			imageCat.SetHeight(100);
-			imageCat.SetX(Game.GetWindowWidth() / 2);
-			imageCat.SetY(Game.GetWindowHeight() / 2);
-
 			cat.Bump();
-		//	AddElement(imageCat);
+			cat.SetChristmasTree(tree);
+			//	AddElement(imageCat);
 		}
 		public override void Step(float dt)
 		{

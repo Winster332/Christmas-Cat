@@ -29,6 +29,7 @@ namespace Christmas_Cat.GameEngine.Models
 			img.SetY(y);
 			img.SetWidth(w);
 			img.SetHeight(h);
+			img.UserObject = "decoration";
 			Decorations.Add(img);
 		}
 		public void GenerateDecorations(int size)
